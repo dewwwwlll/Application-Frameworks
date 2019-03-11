@@ -1,2 +1,2 @@
-# Architecture-Frameworks
+# Application-Frameworks
 frameworks lab sessions
