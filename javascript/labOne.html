@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Sheet One</title>
+</head>
+<body>
+
+    <script>
+        //task 01
+
+        var fun = function () {
+            console.log("Hello world!")
+        };
+
+        function funF(ex){
+            ex();
+        }
+
+        funF(fun);
+
+        //task 02
+        var object = {
+            name:"sahith",
+            age:24,
+            IT:17098960
+        }
+
+        var vehicleName = "Lambogini";
+
+        function printVehicleName(){
+            console.log(this.vehicleName);
+        }
+
+        var Vehicle = {
+            vehicleName : "Masarate",
+            getVehicleName  : printVehicleName
+        }
+
+            printVehicleName();
+            Vehicle.getVehicleName();
+
+        //task 03
+        function taxCalculator(percentage){
+            var percentageValue = percentage;
+            return function (amount) {
+                return amount * percentageValue / 100;
+            };
+        };
+        var calculator = taxCalculator(30);
+        console.log(calculator(10000));
+
+        //task 04
+        function fetchUsers() {
+            fetch('https://api.github.com/users').then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                console.log(json);
+            });
+        }
+        fetchUsers();
+
+    </script>
+
+
+</body>
+</html>
