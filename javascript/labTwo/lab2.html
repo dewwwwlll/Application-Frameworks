@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var vehicleName = 'Toyota';
+
+    function printVehicleNameOuter() {
+        console.log(this.vehicleName);
+    }
+
+    console.log(this);
+
+    //prints 'Toyota' cause outside its 'Toyota'
+    console.log("outer function")
+    printVehicleNameOuter();
+
+    var Vehicle = {
+        vehicleName: 'Nissan',
+        printVehicleNameInner: function () {
+            return function () {
+                console.log(this.vehicleName);
+            }
+        }
+    };
+
+
+    var ex1 = Vehicle.printVehicleNameInner();
+    console.log("using call")
+    ex1.call(Vehicle);//nissan
+
+    var ex2 = Vehicle.printVehicleNameInner().bind(Vehicle);
+    console.log("using bind")
+    ex2();//nissan
+
+
+</script>
+
+</body>
+</html>
